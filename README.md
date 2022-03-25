@@ -2,37 +2,51 @@
 
 **Details of datasets created:**
 
-(a) Table `Actor`: consists of the following two attributes:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) a_id (a random integer between 1 and 300000) and
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) name(a random string of length 15 characters).
-a_id is the primary key of the table. So as expected two actors should not have the same id. We have 300000 actors.
+(a) Table **Actor**: consists of the following two attributes:
 
-(b) Table `Production Company`: consists of following attributes:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) pc_id (a random integer between 1 and 80000;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) name (a random string of length 10 characters);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3) address (a random string of length 30 characters).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) `a_id`(a random integer between 1 and 300000) and
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) `name` (a random string of length 15 characters).
+
+`a_id` is the primary key of the table. So as expected two actors should not have the same id. We have 300000 actors.
+
+(b) Table **Production Company**: consists of following attributes:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) `pc_id` (a random integer between 1 and 80000;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) `name` (a random string of length 10 characters);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3) `address` (a random string of length 30 characters).
+
 We have 80000 companies.
 
-(c) Table `Movie`: consists of following attributes:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) m_id (a random integer between 1 and 1000000);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) name (a random string of length 10 characters;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3) year (a random integer between 1900 and 2000);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4) imdb score (a random float between 1 and 5);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5) production company (foreign key referencing to pc_id of the table production company).
+(c) Table **Movie**: consists of following attributes:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) `m_id` (a random integer between 1 and 1000000);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) `name` (a random string of length 10 characters;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3) `year` (a random integer between 1900 and 2000);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4) `imdb_score` (a random float between 1 and 5);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5) `production_company` (foreign key referencing to pc_id of the table production company).
 
 - As expected all the production companies in this table should be a valid company in the production company table.
-- m_id is the primary key of this table.
-- pc_id is a random integer between 1 and 80000.
+- `m_id` is the primary key of this table.
+- `pc_id` is a random integer between 1 and 80000.
 
-(d) Table `Casting`: consists of following attributes:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) m_id and
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) a_id.
+(d) Table **Casting**: consists of following attributes:
 
-- m_id is a foreign key reference to the movie table.
-- a_id is a foreign key referencing the actor table.
-- m_id and a_id together form the primary key of this table.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1) `m_id` and
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) `a_id`.
+
+- `m_id` is a foreign key reference to the movie table.
+- `a_id` is a foreign key referencing the actor table.
+- `m_id` and `a_id` together form the primary key of this table.
 - Each movie has 4 actors and all movies have actors.
-- actor ids follow uniformly random distribution.
+- `a_id` follow uniformly random distribution.
 
 **Details of indexes created**
 Indexes created on the following attributes:
