@@ -1,4 +1,4 @@
-## Database Queries Execution Plans Analysis
+## Database Queries' Execution Plans Analysis
 
 **Details of datasets created:**
 
@@ -8,7 +8,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) `name` (a random string of length 15 characters).
 
-`a_id` is the primary key of the table. So as expected two actors should not have the same id. We have 300000 actors.
+- `a_id` is the primary key of the table. So as expected two actors should not have the same id. We have 300000 actors.
 
 (b) Table **Production Company**: consists of following attributes:
 
@@ -18,7 +18,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3) `address` (a random string of length 30 characters).
 
-We have 80000 companies.
+- We have 80000 companies.
 
 (c) Table **Movie**: consists of following attributes:
 
@@ -48,14 +48,14 @@ We have 80000 companies.
 - Each movie has 4 actors and all movies have actors.
 - `a_id` follow uniformly random distribution.
 
-**Details of indexes created**
-Indexes created on the following attributes:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a) a_id in the actor table;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) m_id in the movie table;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c) imdb score in the movie table;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d) year in the movie;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e) m_id in the casting table;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(f) a_id in the casting table;
+**Details of indexes created**  
+Indexes created on the following attributes:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(a) a_id in the actor table;  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) m_id in the movie table;  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(c) imdb score in the movie table;  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(d) year in the movie;  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(e) m_id in the casting table;  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(f) a_id in the casting table;  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(g) pc_id in movie table.
 
 #### Part A: Experimenting with Query Selectivity
@@ -83,8 +83,8 @@ Thereafter, we addressed the following questions:
 
 #### Part B: Join Strategies
 
-1. Consider the following SQL queries
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q1: Join Actor, Movie and Casting; Where a_id < 50; finally, the query outputs actor name and movie name.
+1. Consider the following SQL queries  
+   Q1: Join Actor, Movie and Casting; Where a_id < 50; finally, the query outputs actor name and movie name.
 
    ```SQL
    SELECT actor.name, movie.name
@@ -94,7 +94,7 @@ Thereafter, we addressed the following questions:
    AND actor.a_id < 50;
    ```
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q2: Join Actor and Casting; Where m_id < 50; finally, the query outputs actor name.
+   Q2: Join Actor and Casting; Where m_id < 50; finally, the query outputs actor name.
 
    ```SQL
    SELECT actor.name
@@ -103,7 +103,7 @@ Thereafter, we addressed the following questions:
    AND casting.m_id < 50;
    ```
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q3: Join Movie and Production Company; where imdb score is less than 1.5. Finally, the query outputs the movie name and production company.
+   Q3: Join Movie and Production Company; where imdb score is less than 1.5. Finally, the query outputs the movie name and production company.
 
    ```SQL
    SELECT movie.name, production_company.name
@@ -112,7 +112,7 @@ Thereafter, we addressed the following questions:
    AND movie.imdb_score < 1.5;
    ```
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q4: Join Movie and Production Company; where year is between 1950 and 2000. Finally, the query outputs the movie name and production company.
+   Q4: Join Movie and Production Company; where year is between 1950 and 2000. Finally, the query outputs the movie name and production company.
 
    ```SQL
    SELECT movie.name, production_company.name
